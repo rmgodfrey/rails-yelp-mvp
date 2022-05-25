@@ -6,6 +6,9 @@ class Review < ApplicationRecord
 
   required = %I[content rating]
   required.each { |field| validates field, presence: true }
-  validates :rating, inclusion: { in: MIN_RATING..MAX_RATING }
-  validates :rating, numericality: { only_integer: true }
+  validates :rating, numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: 0,
+    less_than_or_equal_to: 5
+  }
 end

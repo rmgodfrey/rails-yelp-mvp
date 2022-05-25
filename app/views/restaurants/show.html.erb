@@ -1,2 +1,13 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<h1><%= @restaurant.name %></h1>
+
+<p class="address"><%= @restaurant.address %></p>
+<p class="phone_number"><%= @restaurant.phone_number %></p>
+
+<h2>Reviews</h2>
+
+<p><%= link_to "Add a review", new_restaurant_review_path(@restaurant) %></p>
+
+<% @restaurant.reviews.each do |review| %>
+  <%# Assumes that each review is a paragraph, not necessarily correct %>
+  <p><%= review.content %> (Score: <%= review.rating %>/5)</p>
+<% end %>

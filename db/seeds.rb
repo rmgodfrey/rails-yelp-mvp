@@ -10,7 +10,7 @@ def create_random_restaurant
   restaurant = Restaurant.create(
     name: Faker::Restaurant.name,
     address: Faker::Address.full_address,
-    phone_number: Faker::PhoneNumber.phone_number,
+    phone_number: Faker::PhoneNumber.cell_phone,
     category: Restaurant::CATEGORIES.sample
   )
   rand(MAX_REVIEWS_PER_RESTAURANT + 1).times do
